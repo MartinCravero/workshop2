@@ -2,12 +2,11 @@ window.onload = () => {
 
 let boton = document.getElementById('boton')
 let buscador = document.getElementById('buscador')
-let listaAnime = []
 let infoAnime2 = document.getElementById('cuerpo')
 
 
 async function getAnime (anime){
-    let resuts = await fetch(`https://api.jikan.moe/v3/search/anime?q=${anime}`)
+    let results = await fetch(`https://api.jikan.moe/v3/search/anime?q=${anime}`)
         results = await reults.json()
         return results
     }
@@ -15,8 +14,9 @@ async function getAnime (anime){
 
     function renderView (infoAnime) {
         for (let i = 0; i < infoAnime.results.length; i++) {
-            infoAnime2.innerHTML = `<h1>${infoAnime.results[i].title}</h1> <img src="${infoAnime}.results[i].image_url}" alt="poster">`
-            infoAnime2.appendChild = newItem 
+            infoAnime2.innerHTML = `<h1>${infoAnime.results[i].title}</h1> <img src="${infoAnime.results[i].image_url}" alt="poster">`
+            let listaAnime = []
+            infoAnime2.appendChild = (newItem)
         }
     }
     
@@ -29,4 +29,5 @@ async function getAnime (anime){
             buscador.value = ''    
         })
     }
+    buscarAnime()
 }
